@@ -4,6 +4,8 @@ import { CommandHandler } from './handlers/commandHandler';
 import { EventHandler } from './handlers/eventHandler';
 import { DatabaseService } from './services/databaseService';
 import { Logger } from './utils/logger';
+import { sendAlert } from './utils/alerts';
+import { setupHealthCheck } from './utils/health'; // Remove the express import and server from here
 
 declare module 'discord.js' {
     interface Client {
@@ -49,11 +51,16 @@ class FinanceBot {
             await this.dbService.initialize();
             await this.commandHandler.loadCommands();
             await this.eventHandler.loadEvents();
+
+            setupHealthCheck();
+
             await this.client.login(process.env.DISCORD_TOKEN);
 
             Logger.success('Finance bot started successfully!');
+            sendAlert('Bot started successfully!');
         } catch (error) {
             Logger.error('Failed to start bot:', error);
+            sendAlert(`Failed to start bot: ${error}`);
             process.exit(1);
         }
     }
