@@ -1,0 +1,24 @@
+{
+  "name": "wallet",
+  "version": "2.0.0",
+  "description": "Advanced Discord bot for Finance Manager",
+  "main": "dist/bot.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/bot.js",
+    "dev": "ts-node src/bot.ts",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "firebase-admin": "^11.11.1",
+    "dotenv": "^16.3.1",
+    "axios": "^1.5.0",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1"
+  }
+}

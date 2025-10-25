@@ -1,0 +1,17 @@
+node_modules/
+
+dist/
+build/
+
+*.tsbuildinfo
+
+*.log
+
+.env
+serviceAccount.json
+
+.DS_Store
+Thumbs.db
+
+.idea/
+*.iml
